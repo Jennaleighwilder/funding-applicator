@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funding Applicator – Plain-language application templates</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>Funding Applicator</h1>
+    <div class="accessibility-bar" aria-label="Accessibility options">
+      <label>
+        <span>Font size</span>
+        <select id="fontSizeSelect" aria-label="Font size">
+          <option value="small">Small</option>
+          <option value="medium" selected>Medium</option>
+          <option value="large">Large</option>
+        </select>
+      </label>
+      <label>
+        <input type="checkbox" id="dyslexiaToggle" aria-label="Dyslexia-friendly font">
+        <span>Dyslexia-friendly font</span>
+      </label>
+      <label>
+        <input type="checkbox" id="contrastToggle" aria-label="High contrast">
+        <span>High contrast</span>
+      </label>
+      <button type="button" id="ttsButton" class="btn btn-outline" aria-label="Read instructions aloud">Read aloud</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- UPLOAD VIEW -->
+    <div id="view-upload" class="view active">
+      <p>Generate pre-filled, plain-language application templates. We translate complex grant language into clear instructions.</p>
+      <div class="upload-zone" id="uploadZone">
+        <p><strong>Drop your Funding Finder report here</strong> or choose a file.</p>
+        <p class="hint">Use &quot;Download report (JSON)&quot; from Funding Finder, then load that file here.</p>
+        <input type="file" id="fileInput" accept=".json,application/json" aria-label="Choose report file" />
+      </div>
+      <div class="upload-success" id="uploadSuccess" style="display:none;">
+        <h2>We found <span class="upload-success-count">0</span> funding opportunities. Let's help you apply!</h2>
+        <p>Add your info below so we can pre-fill your applications. You can skip this and fill in later.</p>
+        <div class="profile-card">
+          <label for="profileBusinessName">Business or project name</label>
+          <input type="text" id="profileBusinessName" placeholder="e.g. My Small Business" />
+          <label for="profileLocation">Location (city, state, zip)</label>
+          <input type="text" id="profileLocation" placeholder="e.g. Austin, TX 78701" />
+          <label for="profileDescription">Short project description (we use this to pre-fill)</label>
+          <textarea id="profileDescription" rows="3" placeholder="One or two sentences about what you do and who you serve."></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" id="btnGoToSources">Let's go!</button>
+      </div>
+      <p class="error" id="uploadError" style="display:none;" role="alert"></p>
+    </div>
+
+    <!-- SOURCE SELECTOR VIEW -->
+    <div id="view-sources" class="view">
+      <p><a href="#" id="backToUpload" class="btn-text">← Upload a different report</a></p>
+      <h2>Your funding opportunities</h2>
+      <p>Choose a source and click &quot;Generate Application Template&quot; to start. We will walk you through each section in plain language.</p>
+      <div class="sort-bar">
+        <label for="sortSelect">Sort by</label>
+        <select id="sortSelect" aria-label="Sort sources">
+          <option value="easiest">Easiest first</option>
+          <option value="amount">Highest amount</option>
+          <option value="deadline">Closest deadline</option>
+        </select>
+      </div>
+      <div class="source-grid" id="sourceCards"></div>
+    </div>
+
+    <!-- WIZARD VIEW -->
+    <div id="view-wizard" class="view">
+      <div class="wizard-header">
+        <h2 id="wizardTitle">Application</h2>
+        <div class="wizard-progress">
+          <div class="wizard-progress-fill" id="wizardProgressFill" style="width:0%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <p class="wizard-progress-label" id="wizardProgressLabel">Section 0 of 0</p>
+      </div>
+      <div id="wizardContent"></div>
+    </div>
+
+    <!-- REVIEW / DOCUMENT BUILDER VIEW -->
+    <div id="view-review" class="view">
+      <div id="reviewContent"></div>
+    </div>
+  </main>
+
+  <script src="js/dictionary.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.initJargonPopups) window.initJargonPopups();
+    });
+  </script>
+</body>
+</html>

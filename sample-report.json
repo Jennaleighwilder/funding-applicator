@@ -1,0 +1,55 @@
+{
+  "reportVersion": 1,
+  "reportType": "funding_finder",
+  "generatedAt": "2026-02-06T12:00:00.000Z",
+  "forSisterSite": true,
+  "summary": {
+    "opportunityCount": 3,
+    "totalPotentialFunding": 125000,
+    "avgMatchScore": "78"
+  },
+  "opportunities": [
+    {
+      "source_name": "SBA Microloan Program",
+      "provider_name": "U.S. Small Business Administration",
+      "application_url": "https://www.sba.gov/funding-programs/loans/microloans",
+      "source_type": "loan",
+      "min_amount": 500,
+      "max_amount": 50000,
+      "deadline_type": "Rolling",
+      "requirements_text": "Provide a comprehensive overview of your business model and value proposition. Articulate your theory of change. Demonstrate fiscal sustainability and revenue diversification strategies. Describe deliverables and expected outcomes.",
+      "match_score": 85,
+      "match_reasons": ["Small business", "Funding range match"],
+      "eligibility_gaps": [],
+      "competitive_advantages": ["Clear project description"]
+    },
+    {
+      "source_name": "Local Community Grant",
+      "provider_name": "Community Development Council",
+      "application_url": "https://example.com/apply",
+      "source_type": "grant",
+      "min_amount": 5000,
+      "max_amount": 25000,
+      "deadline_type": "March 15, 2026",
+      "requirements_text": "Describe your project goals and expected outcomes. Provide a timeline with key milestones. Explain stakeholder engagement and how you will sustain the project after funding ends.",
+      "match_score": 72,
+      "match_reasons": ["Community focus"],
+      "eligibility_gaps": ["Documentation"],
+      "competitive_advantages": []
+    },
+    {
+      "source_name": "Innovation Seed Fund",
+      "provider_name": "State Economic Development",
+      "application_url": null,
+      "source_type": "grant",
+      "min_amount": 10000,
+      "max_amount": 50000,
+      "deadline_type": "Rolling",
+      "requirements_text": "Articulate your theory of change. Demonstrate alignment with program goals. Provide budget narrative and sustainability plan. Describe evaluation and dissemination plans.",
+      "match_score": 68,
+      "match_reasons": [],
+      "eligibility_gaps": ["Proof of concept required"],
+      "competitive_advantages": []
+    }
+  ]
+}
