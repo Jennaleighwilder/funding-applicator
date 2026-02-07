@@ -1,0 +1,13 @@
+{
+  "name": "funding-applicator",
+  "version": "1.0.0",
+  "description": "Plain-language application templates for funding sources.",
+  "scripts": {
+    "start": "serve -s . -l ${PORT:-8080}"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
